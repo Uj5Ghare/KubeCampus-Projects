@@ -67,8 +67,8 @@ watch kubectl get pods --all-namespaces
 
 ## Demo Application with Microservices
 ```bash
-sudo git clone https://github.com/microservices-demo/microservices-demo.git
-cd microservices-demo/deploy/kubernetes
+sudo git clone https://github.com/Uj5Ghare/KubeCampus-Projects.git
+cd Project-1/deploy/kubernetes
 kubectl apply -f complete-demo.yaml
 watch kubectl get pods --namespace sock-shop
 ```
