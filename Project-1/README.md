@@ -23,7 +23,7 @@ This guide provides step-by-step instructions for installing and configuring Kub
 
 4. Install Docker:
     ```bash
-    sudo export VERSION=19.03 && curl -sSL get.docker.com | sh
+    export VERSION=19.03 && curl -sSL get.docker.com | sh
     ```
 
 5. Setup the Kubernetes Control Plane:
@@ -61,15 +61,15 @@ Copy the output and run it on all worker nodes
 
 Note:- Open these ports TCP 6783 and UDP 6783/6784.
 ```bash 
-sudo kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s-1.11.yaml
-sudo watch kubectl get pods --all-namespaces
+kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s-1.11.yaml
+watch kubectl get pods --all-namespaces
 ```
 
 ## Demo Application with Microservices
 ```bash
 sudo git clone https://github.com/microservices-demo/microservices-demo.git
 cd microservices-demo/deploy/kubernetes
-sudo kubectl apply -f complete-demo.yaml
-sudo watch kubectl get pods --namespace sock-shop
+kubectl apply -f complete-demo.yaml
+watch kubectl get pods --namespace sock-shop
 ```
 
