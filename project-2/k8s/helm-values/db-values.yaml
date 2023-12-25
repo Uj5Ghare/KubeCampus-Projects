@@ -1,0 +1,18 @@
+## Cluster domain
+##
+clusterDomain: <DOMAIN>
+ 
+## Custom user/db credentials
+##
+auth:
+  rootPassword: <PASSWORD>
+  ## MySQL username and password
+  ## ref: https://artifacthub.io/packages/helm/bitnami/mysql
+  ## Note that this user should be different from the MySQL replication user (replication.user)
+  ##
+  username: admin
+  password: <PASSWORD>
+  ## Database to create
+  ## ref: https://artifacthub.io/packages/helm/bitnami/mysql
+  ##
+  database: service_instance_db
