@@ -1,4 +1,4 @@
-<div align="center"> <h1> Kasten K10 Backup Demo </h1></div>
+<div align="center"> <h1> Kasten K10 Restoring Demo </h1></div>
 <br>
 
 ## Add the Kasten K10 helm repo:
