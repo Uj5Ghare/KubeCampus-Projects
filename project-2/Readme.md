@@ -76,3 +76,55 @@ kubectl scale deployments -n spring-petclinic {api-gateway,customers-service,vet
 ```bash
 kubectl get pods -n spring-petclinic
 ```
+
+# Introduction to Kubestr
+
+Kubestr is a collection of tools to discover, validate and evaluate your Kubernetes storage options.
+
+
+Download the latest release
+
+```bash
+curl -sLO https://github.com/kastenhq/kubestr/releases/download/v0.4.17/kubestr-v0.4.17-linux-amd64.tar.gz
+```
+Unpack the tool and make it an executable
+```bash
+tar -xvzf kubestr-v0.4.17-linux-amd64.tar.gz -C /usr/local/bin
+chmod +x /usr/local/bin/kubestr
+kubestr
+```
+
+## To run an FIO test
+```bash
+cat <<'EOF'>ssd-test.fio
+[global]
+bs=4k
+ioengine=libaio
+iodepth=1
+size=1g
+direct=1
+runtime=10
+directory=/
+filename=ssd.test.file
+
+[seq-read]
+rw=read
+stonewall
+
+[rand-read]
+rw=randread
+stonewall
+
+[seq-write]
+rw=write
+stonewall
+
+[rand-write]
+rw=randwrite
+stonewall
+EOF
+```
+
+```bash
+kubestr fio -f ssd-test.fio -s local-path
+```
